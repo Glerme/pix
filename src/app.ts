@@ -2,7 +2,6 @@ import cors from 'cors';
 import morgan from 'morgan';
 import express from 'express';
 import { json } from 'body-parser';
-import openapi from '@ev-fns/openapi';
 
 import { notFound } from './middlewares/notFound';
 import { exception } from './middlewares/exception';
@@ -16,7 +15,7 @@ const app = express();
 app.use(cors());
 app.use(json());
 app.use(morgan('dev'));
-app.use(openapi({ apiName: process.env.API_NAME }));
+app.use(morgan('dev'));
 
 const routes = readdirSync(join(__dirname, 'routes'));
 
