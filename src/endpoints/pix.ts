@@ -6,8 +6,6 @@ export const generatePix: RequestHandler = async (req, res) => {
   try {
     const { valor } = req.body;
 
-    const newValue = valor.replace(/,/g, '.');
-
     const url = `${process.env.URL_OPENPIX}/charge`;
 
     const response = await fetch(url, {
@@ -19,7 +17,8 @@ export const generatePix: RequestHandler = async (req, res) => {
       },
       body: JSON.stringify({
         correlationID: uuidv4(),
-        value: newValue,
+        value: valor,
+        expiresIn: 3600,
       }),
     });
 
