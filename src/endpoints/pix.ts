@@ -13,7 +13,7 @@ export const generatePix: RequestHandler = async (req, res) => {
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
-        Authorization: process.env.APPID_OPENPIX ?? '',
+        Authorization: process.env.APPID_OPENPIX || '',
       },
       body: JSON.stringify({
         correlationID: uuidv4(),
