@@ -18,13 +18,10 @@ export const webhook: RequestHandler = async (req, res) => {
 
     let body = new formData();
     body.append('data', JSON.stringify(dadosPix));
-    let response = await fetch(
-      'https://app.showdepremios.top/back-api/comp.php',
-      {
-        method: 'POST',
-        body,
-      },
-    );
+    let response = await fetch(`${process.env.BACK_API}/comprovante.php`, {
+      method: 'POST',
+      body,
+    });
     let json = await response.json();
 
     return res.status(200).json(json);

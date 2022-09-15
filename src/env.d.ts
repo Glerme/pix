@@ -6,5 +6,6 @@ declare namespace NodeJS {
     API_NAME: string;
     URL_OPENPIX: string;
     APPID_OPENPIX: string;
+    BACK_API: string;
   }
 }
